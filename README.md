@@ -3,7 +3,7 @@
 ### Getting Started Guide
 _____
 
-### Table of content
+## Table of content
 1. [Which API should I use?](#chooseapi)
 2. [The API Key](#apikey)
 3. [The List API](#listapi)
@@ -12,7 +12,7 @@ _____
 6. [About](#aboutthis)
 ___
 
-### <a name="chooseapi"></a>1. Which API should I use?
+## <a name="chooseapi"></a>1. Which API should I use?
 
 
 | Use the         | To get      | What you'll get / Notes |
@@ -23,11 +23,11 @@ ___
 
 _____
 
-### <a name="apikey"></a>2. The API Key
+## <a name="apikey"></a>2. The API Key
 You will need a key provided by [Data.gov](https://www.data.gov/) for all your requests. 
 Data.gov is _"the home of the U.S. Government’s open data"_. 
 
-#### To get the API key
+### To get the API key
  * Go to the [NDB API website](https://ndb.nal.usda.gov/ndb/api/doc#)
  * Look for the __Gaining Access__ section.
  * Click on `sign up` (or something similar)
@@ -37,12 +37,12 @@ Data.gov is _"the home of the U.S. Government’s open data"_.
 
 _______________________________
 
-### <a name="listapi"></a>3. The List API
+## <a name="listapi"></a>3. The List API
 
 You may request a list of up to 1,500 foods, nutrients or food groups.
 
-#### Making a REQUEST
-##### URL Pattern 
+### Making a REQUEST
+#### URL Pattern 
 
     https://api.nal.usda.gov/ndb/list?format=JSON_or_XML&amplt=LIST_TYPE&ampsort=BY_NAME_OR_ID&ampmax=NUMBER_OF_ITEMS_IN_RESPONSE&offset=DEFAULT_IS_0&api_key=DEMO_KEY
 
@@ -50,7 +50,7 @@ An actual request might look like this:
 
     https://api.nal.usda.gov/ndb/list?format=json&lt=f&sort=n&max=3&offset=0&api_key=DEMO_KEY
 
-##### The request parameters in detail
+#### The request parameters in detail
 * __api_key__: required _(see section 2: [The API key](#apikey))_
 * __format__ : the response's format. `xml` or `json` _(default)_.
 * __lt__ : list type. Possible options are:
@@ -68,7 +68,7 @@ An actual request might look like this:
 * __max__ : default is 50. Maximum per request is 1500.
 * __offset__: default is 0. If you specify a number larger than 0, their response will ignore the items in their resulset in positions lower than your specified value.
 
-#### The RESPONSE 
+### The RESPONSE 
 
 The exact response, of course, will vary according to the request parameters. To give you an idea of what you might be dealing with, here's an example:
 
@@ -104,12 +104,12 @@ __Produced the following JSON result__
 
 _______________________________
 
-### <a name="searchapi"></a>4. The Search API
+## <a name="searchapi"></a>4. The Search API
 You may request a list of foods which contain at least one of the query keywords, in the food description or name (scientific or commercial).
 
-#### Making a REQUEST
+### Making a REQUEST
 
-##### URL Pattern 
+#### URL Pattern 
 
     https://api.nal.usda.gov/ndb/search/?q=SEARCH_TEARMS&format=JSON_or_XML&sort=NAME_or_RELEVANCE&max=NUMBER_OF_ITEMS&offset=DEFAULT_IS_0&api_key=DEMO_KEY
 
@@ -117,7 +117,7 @@ An actual request might look like this:
 
     https://api.nal.usda.gov/ndb/search/?q=raw%20pepper&format=json&sort=r&max=5&offset=0&api_key=DEMO_KEY
 
-##### The request parameters in detail
+#### The request parameters in detail
 * __api_key__: required (see section 2: [The API key](#apikey))
 * __q__: Search terms.
 * __ds__: Data source. Must be either `Branded Food Products` or `Standard Reference`.
@@ -130,7 +130,7 @@ An actual request might look like this:
 * __format__: json _(default)_ or xml.
 
 
-#### The RESPONSE 
+### The RESPONSE 
 
 The exact response, of course, will vary according to the request parameters. To give you an idea of what you might be dealing with, here's an example:
 
@@ -171,20 +171,20 @@ __Produced the following JSON result__
 
 _______________________________
 
-### <a name="foodapi"></a>5. The Food Report Version 2 API
+## <a name="foodapi"></a>5. The Food Report Version 2 API
 There are currently 2 versions available for the Food Report API (Version 1 and Version 2). They seem to be quite similar, but this guide was created for version 2.
 
 The Food Report API allows you to request up to 50 specific food items, by specifying up to 50 ndbno (IDs). You will receive detailed nutrional information on them.
 
-#### Making a REQUEST
-##### URL Pattern 
+### Making a REQUEST
+#### URL Pattern 
     https://api.nal.usda.gov/ndb/V2/reports?ndbno=FOOD_ID&ndbno=ANOTHER_FOOD_ID&ndbno=AND_ANOTHER_FOOD_ID&type=BASIC_FULL_or_STATSformat=JSON_OR_XML&api_key=DEMO_KEY
 
 An actual request might look like this:
     
     https://api.nal.usda.gov/ndb/V2/reports?ndbno=01009&ndbno=45202763&ndbno=35193&type=b&format=json&api_key=DEMO_KEY
 
-##### The request parameters in detail
+#### The request parameters in detail
 * __api_key__: required _(see section 2: [The API key](#apikey))_
 * __ndbno__: at least one is required. This is the unique ID of the food, which you can obtain through the [list API](#listapi) or the [search API](#searchapi).
 * __format__: _(optional)_ _xml_ or _json_ (default).
@@ -195,7 +195,7 @@ An actual request might look like this:
     * _Branded food products are only available in __basic__ format._    
 
     
-#### The response
+### The response
 
 The exact response, of course, will vary according to the request parameters. To give you an idea of what you might be dealing with, here's an example:
 
@@ -256,7 +256,7 @@ __Produced the following JSON result__
 
 
 ___
-### <a name="aboutthis"></a>6. About this guide
+## <a name="aboutthis"></a>6. About this guide
 
 This is an _unofficial guide_ on how to use the listed APIs of the [USDA Food Composition Databases](https://ndb.nal.usda.gov/ndb/api/doc).
  It was developed on 03/2017, based on their documentation, but with what is to me a more user-friendly style (of course, we might have different opinions on what's _user-friendly_). 
